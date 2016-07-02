@@ -1,0 +1,146 @@
+/* Sweep
+  by BARRAGAN <http://barraganstudio.com>
+  This example code is in the public domain.
+
+  modified 8 Nov 2013
+  by Scott Fitzgerald
+  http://www.arduino.cc/en/Tutorial/Sweep
+*/
+
+#include <Servo.h>
+#include<SoftwareSerial.h>
+Servo myservo;
+Servo myservo1;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+Servo myservo5;
+
+int pos = 0;
+int pos1 = 0;
+int pos2 = 0;
+int pos3 = 0;
+int pos4 = 0;
+int pos5 = 0;
+
+int stat = 0;
+int stat1 = 0;
+int stat2 = 0;
+int stat3 = 0;
+int stat4 = 0;
+int stat5 = 0;
+
+
+void setup() {
+  myservo.attach(3);
+  myservo1.attach(5);
+  myservo2.attach(6);
+  myservo3.attach(9);
+  myservo4.attach(10);
+  myservo5.attach(11);
+  Serial.begin(9600);
+}
+
+void loop() {
+  stat = analogRead(A0);
+  stat1 = analogRead(A1);
+  stat2 = analogRead(A2);
+  stat3 = analogRead(A3);
+  stat4 = analogRead(A4);
+  stat5 = analogRead(A5);
+
+  Serial.println(stat);
+
+
+  delay(10);
+
+  /*motor1*/
+
+  if (stat == 1023)
+  {
+    myservo.write(pos);
+    pos = pos + 1;
+    delay(10);
+  }
+  else if (stat == 0)
+  {
+    myservo.write(pos);
+    pos = pos - 1;
+    delay(10);
+
+  }
+  //void servo2() {
+
+  else if (stat1 == 1023)
+  {
+    myservo1.write(pos1);
+    pos1++;
+    delay(10);
+  }
+  else if (stat1 == 0)
+  {
+    myservo1.write(pos1);
+    pos1--;
+    delay(10);
+  }
+
+  // void servo3() {
+
+  else if (stat2 == 1023)
+  {
+    myservo2.write(pos2);
+    pos2++;
+    delay(10);
+  }
+  else if (stat2 == 0)
+  {
+    myservo2.write(pos2);
+    pos2--;
+    delay(10);
+  }
+
+  //void servo4() {
+
+  else if (stat3 == 1023)
+  {
+    myservo3.write(pos3);
+    pos3++;
+    delay(10);
+  }
+  else if (stat3 == 0)
+  {
+    myservo3.write(pos3);
+    pos3--;
+    delay(10);
+  }
+
+  //void servo5() {
+
+  else if (stat4 == 1023)
+  {
+    myservo4.write(pos4);
+    pos4++;
+    delay(10);
+  }
+  else if (stat4 == 0)
+  {
+    myservo4.write(pos4);
+    pos4--;
+    delay(10);
+  }
+
+  //void servo6() {
+
+  else if (stat5 == 1023)
+  {
+    myservo5.write(pos5);
+    pos5++;
+    delay(10);
+  }
+  else if (stat5 == 0)
+  {
+    myservo5.write(pos5);
+    pos5--;
+    delay(10);
+  }
+}
